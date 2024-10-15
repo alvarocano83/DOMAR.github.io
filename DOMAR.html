@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DOMAR Aluminios y Cristalería ofrece soluciones personalizadas en ventanas, puertas, mamparas y más en Madrid. Calidad garantizada.">
+    <meta name="keywords" content="aluminios, cristalería, ventanas, persianas, mosquiteras, mamparas, cerramientos, Madrid">
+    <title>DOMAR Aluminios y Cristalería</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Barra de navegación fija */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #004080;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        body {
+            padding-top: 60px; /* Para compensar la barra de navegación fija */
+        }
+
+        header {
+            background: url('imagenes/domarfoto.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        header h1, header p {
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 1.5em;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+        }
+
+        section {
+            padding: 50px 10%;
+        }
+
+        h1, h2 {
+            color: #004080;
+        }
+
+        /* Servicios con animaciones */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .service-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, opacity 0.5s;
+            opacity: 0;
+            transform: translateY(20px);
+            text-align: center;
+        }
+
+        .service-item.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-item h3 {
+            margin-bottom: 10px;
+        }
+
+        .service-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .service-item button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .service-item button:hover {
+            background-color: #003060;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        footer {
+            background-color: #005f99;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Botón flotante para volver al inicio en la parte superior */
+        .back-to-top {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #005f99;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            display: block;
+        }
+
+        /* Redes sociales en el pie */
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #ccc;
+        }
+
+        /* Optimización para móviles */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            header p {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>DOMAR e Hijos - Aluminios y Cristalería</h1>
+        <p>Calidad y Profesionalidad en Cada Proyecto</p>
+    </header>
+
+    <nav>
+        <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <section id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="services">
+            <div class="service-item">
+                <img src="https://img.archiexpo.es/images_ae/photo-mg/54704-17816088.jpg" alt="Ventanas y Contraventanas">
+                <h3>Ventanas y Contraventanas</h3>
+                <p>Ofrecemos soluciones completas en ventanas y contraventanas, fabricadas a medida para cualquier tipo de espacio.</p>
+                <button onclick="window.location.href='ventanas.html'">Leer más</button>
+            </div>
+            <div class="service-item">
+                <img src="https://s.alicdn.com/@sc04/kf/S6f43cbc8560b4c97b0ec211e8f309af03.png_720x720q50.png" alt="Persianas con y sin motor">
+                <h3>Persianas con y sin Motor</h3>
+                <p>Instalación y reparación de persianas con y sin motor para mayor comodidad en tu hogar.</p>
+                <button onclick="window.location.href='persianas.html'">Leer más</button>
+            </div>
+            <div class="service-item">
+                <img src="https://m.media-amazon.com/images/I/813NLCeOkSL._AC_UF894,1000_QL80_.jpg" alt="Mosquiteras">
+                <h3>Mosquiteras</h3>
+                <p>Protege tu hogar con nuestras mosquiteras de alta calidad, disponibles en varios modelos.</p>
+                <button onclick="window.location.href='mosquiteras.html'">Leer más</button>
+            </div>
+            <div class="service-item">
+                <img src="https://cristaleriadrago.com/wp-content/uploads/2024/03/Diseno-sin-titulo-9.jpg" alt="Cristalería">
+                <h3>Cristalería</h3>
+                <p>Ofrecemos servicios de cristalería personalizados, perfectos para todo tipo de proyectos.</p>
+                <button onclick="window.location.href='cristaleria.html'">Leer más</button>
+            </div>
+            <div class="service-item">
+                <img src="https://es.habcdn.com/photos/project/medium/cerramiento-terraza-2675903.jpg" alt="Cerramientos de Terraza">
+                <h3>Cerramientos de Terraza</h3>
+                <p>Cerramientos de alta calidad para terrazas, disponibles con y sin persianas.</p>
+                <button onclick="window.location.href='cerramientos.html'">Leer más</button>
+            </div>
+            <div class="service-item">
+            <img src="https://cdn.palbincdn.com/users/1935/images/Ronda-in-out-mampara-cromo-1692631111.jpg" alt="Mamparas de baño">
+            <h3>Mamparas de Baño</h3>
+            <p>Diseños modernos y resistentes en mamparas de baño, adaptadas a cualquier espacio.</p>
+            <button onclick="window.location.href='mamparas.html'">Leer más</button>
+        </div>
+        <div class="service-item">
+            <img src="https://www.carpinteriakapitel.es/images/stories/virtuemart/product/resized/armario-cornella-2-puertas-correderas-ambiente_350x350.jpg" alt="Frentes de Armario">
+            <h3>Frentes de Armario</h3>
+            <p>Fabricamos frentes de armario a medida, con materiales de alta durabilidad y acabado profesional.</p>
+            <button onclick="window.location.href='frentes-armario.html'">Leer más</button>
+        </div>
+        <div class="service-item">
+            <img src="https://www.ifitec.net/wp-content/uploads/2019/12/estructuras-metalicas-cerchas-celosias-ifitec_20.jpg" alt="Celosías y techos">
+            <h3>Celosías y Techos</h3>
+            <p>Soluciones innovadoras en celosías y techos, ideales para embellecer y proteger tus espacios.</p>
+            <button onclick="window.location.href='celosias.html'">Leer más</button>
+        </div>
+        <div class="service-item">
+            <img src="https://www.nexo-aberturas.com.ar/wp-content/uploads/2023/02/C140.jpg" alt="Puertas de aluminio">
+            <h3>Puertas</h3>
+            <p>Instalación de puertas de aluminio personalizadas para interiores y exteriores.</p>
+            <button onclick="window.location.href='puertas.html'">Leer más</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <h2>Galería</h2>
+        <div class="gallery">
+            <!-- Añadir aquí las imágenes -->
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form action="mailto:aluminiosdomar@live.com" method="post" enctype="text/plain">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje" required></textarea>
+            </div>
+            <input type="submit" value="Enviar Mensaje">
+        </form>
+
+        <h3>Ubicación</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!3m2!1ses!2ses!4v1728896146205!5m2!1ses!2ses!6m8!1m7!1sI9VqR_8IQELcxxu7h87_xQ!2m2!1d40.34146246468501!2d-3.804837956202154!3f266.36084389410155!4f3.695577527448208!5f0.7820865974627469" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <!-- Botón flotante para volver al inicio en la parte superior -->
+    <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 DOMAR Aluminios. Todos los derechos reservados.</p>
+        <p>Teléfono: 648 88 21 25 | 622 04 37 97 | Correo: <a href="mailto:aluminiosdomar@live.com">aluminiosdomar@live.com</a></p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Mostrar el botón de volver al inicio cuando se desplaza hacia abajo
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 200) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        // Animación de los servicios cuando aparecen en la vista
+        const serviceItems = document.querySelectorAll('.service-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        serviceItems.forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+
+</body>
+
+</html>
